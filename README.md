@@ -41,9 +41,9 @@ Array.prototype.unique = function () {
 }
 ```
 ## 快排算法,对于大量数据的排序有较大优势
-### 经过测试，遍历数组时用for(i = 0; i < arr.length; i ++)的速度是高与for in 和for of的
+### 经过测试，遍历数组时用for(i = 0; i < arr.length; i ++)的速度是高于for in 和for of的
 ### 同时对10000个数排序
-### for(i = 0; i < arr.length; i ++) 遍历所化时间： 95.992919921875ms
+### for(i = 0; i < arr.length; i ++) 遍历所需时间： 95.992919921875ms
 ### for of 所需时间 103.6181640625ms
 ### for in 所需时间 126.7451171875ms
 ```js
