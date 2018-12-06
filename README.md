@@ -3,11 +3,11 @@
 ## typeof方法的重写,null是存在栈里面的是原始值，但typeof的结果却为object这是历史遗留问题,因为以前使用null替对象占位置的
 ```js
 function type (target) {
-  var arr = '[object Array]'
-  var obj = '[object Object]'
-  var num = '[object Number]'
-  var str = '[object String]'
-  var bol = '[object Boolean]'
+  let arr = '[object Array]'
+  let obj = '[object Object]'
+  let num = '[object Number]'
+  let str = '[object String]'
+  let bol = '[object Boolean]'
   if (typeof (target) === 'object') {
     if (target === null) {
       console.log('this is null')
@@ -38,5 +38,26 @@ Array.prototype.unique = function () {
     }
   }
   return arr
+}
+```
+## 快排算法,对于大量数据的排序有较大优势
+### 经过测试，遍历数组时用for(i = 0; i < arr.length; i ++)的速度是高与for in 和for of的
+### 同时对10000个数排序
+### for(i = 0; i < arr.length; i ++) 遍历所化时间： 95.992919921875ms
+### for of 所需时间 103.6181640625ms
+### for in 所需时间 126.7451171875ms
+```js
+function sort (arr) {
+  if(arr.length === 0) return [];
+  // 以第中间位元素作为基准，划分数组
+  let  flag = arr.splice(Math.floor(arr.length / 2), 1)[0];
+  let left = [];
+  let right = [];
+  for(let i = 0; i < arr.length; i ++) {
+    if(arr[i] < flag)
+      left.push(arr[i]);
+    else right.push(arr[i]);
+  }
+  return [...sort(left), flag, ...sort(right)];
 }
 ```
