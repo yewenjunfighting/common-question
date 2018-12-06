@@ -1,5 +1,5 @@
-# typeof-
-
+# js中常见的问题
+## 判断数据类型
 ## typeof方法的重写,null是存在栈里面的是原始值，但typeof的结果却为object这是历史遗留问题,因为以前使用null替对象占位置的
 ```js
 function type (target) {
@@ -9,7 +9,7 @@ function type (target) {
   var str = '[object String]'
   var bol = '[object Boolean]'
   if (typeof (target) === 'object') {
-    if (target == null) {
+    if (target === null) {
       console.log('this is null')
     } else if (Object.prototype.toString.call(target) === arr) {
       console.log('this is array')
@@ -24,7 +24,9 @@ function type (target) {
     }
   } else console.log('this is ' + typeof (target))
 }
-// 数组去重,但只对原始值有效
+```
+## 数组去重,但只对原始值有效
+```js
 Array.prototype.unique = function () {
   var arr = [],
     obj = {},
